@@ -22,7 +22,11 @@ May need root permissions
 
 =item Edit your F</opt/rt4/etc/RT_SiteConfig.pm>
 
-Add this line:
+If you are using RT 4.2 or greater, add this line:
+
+    Plugin('RT::Extension::LinkedTicketsHistory');
+
+For RT 4.0, add this line:
 
     Set(@Plugins, qw(RT::Extension::LinkedTicketsHistory));
 
