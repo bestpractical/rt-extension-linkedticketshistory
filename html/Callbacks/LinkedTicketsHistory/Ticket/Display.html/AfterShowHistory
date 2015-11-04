@@ -13,7 +13,7 @@ for my $type ( @link_types ) {
     my $links = $Ticket->$type;
     while ( my $link = $links->Next ) {
         my $ticket = $type =~ /MemberOf|RefersTo|DependsOn/ ? $link->TargetObj : $link->BaseObj;
-        next unless $ticket->isa('RT::Ticket'); # link could be an article
+        next unless $ticket && $ticket->isa('RT::Ticket'); # link could be an article
         push @tickets, $ticket if $ticket->CurrentUserHasRight('ShowTicket');
     }
 }
