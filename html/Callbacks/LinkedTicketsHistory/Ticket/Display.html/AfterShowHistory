@@ -6,6 +6,7 @@
 % }
 
 <%INIT>
+return unless RT->Config->Get( 'LinkedTicketsHistory', $session{'CurrentUser'} );
 my @tickets;
 my @link_types = grep { defined } RT->Config->Get('LinkedTicketsHistoryTypes');
 @link_types = qw/MemberOf Members DependsOn DependedOnBy/ unless @link_types;
