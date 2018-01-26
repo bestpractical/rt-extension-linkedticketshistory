@@ -4,6 +4,17 @@ package RT::Extension::LinkedTicketsHistory;
 
 our $VERSION = '0.02';
 
+$RT::Config::META{'LinkedTicketsHistory'} = {
+    Section         => 'Ticket display',
+    Overridable     => 1,
+    Widget          => '/Widgets/Form/Boolean',
+    WidgetArguments => {
+        Description => 'Display also linked Tickets History below History', # loc
+        Hints       => '(' . __PACKAGE__ . ')',
+    },
+};
+
+
 =head1 NAME
 
 RT-Extension-LinkedTicketsHistory - show linked tickets' history on ticket display page
